@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <bean class="com.app.beans.User" id="user">
+
+        <property name="name" value="Ram Kumar" />
+        <property name="email" value="ram@gmail.com" />
+        <property name="pass" value="124539" />
+        <property name="roll" value="1000" />
+
+    </bean>
+
+</beans>
