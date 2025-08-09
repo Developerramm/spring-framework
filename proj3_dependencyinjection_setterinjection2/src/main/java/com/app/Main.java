@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.app.beans.Employee;
 import com.app.beans.Student;
 
 public class Main {
@@ -19,6 +20,10 @@ public class Main {
         System.out.println(student);
 
         student.startMyCourse();
+
+        Employee employee = null;
+        employee = context.getBean("emp", Employee.class);
+        System.out.println(employee);
 
         ((AbstractApplicationContext) context).close();
     }

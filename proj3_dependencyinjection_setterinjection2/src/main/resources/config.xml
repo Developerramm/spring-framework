@@ -11,4 +11,14 @@
         <property name="course" ref="course" />
     </bean>
     <bean class="com.app.beans.Course" id="course"></bean>
+    <bean class="java.util.Date" id="d1">
+        <property name="year" value="125"></property>
+        <property name="month" value="7"></property>
+        <property name="date" value="9"></property>
+    </bean>
+    <bean class="com.app.beans.Employee" id="emp">
+        <property name="empName" value="mohit"></property>
+        <property name="empDob" ref="d1"></property>
+        <property name="dept" value="IT"></property>
+    </bean>
 </beans>
