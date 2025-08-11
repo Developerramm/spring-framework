@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    <bean class="com.app.beans.Student" id="student">
+    	<constructor-arg name="name" value="Ram kumar"></constructor-arg>
+    	<constructor-arg name="email" value="abc@gmail.com"></constructor-arg>
+    	<constructor-arg name="roll" value="454878"></constructor-arg>
+    	<constructor-arg name="course" ref="c1"></constructor-arg>
+    </bean>
+    
+    <bean class="com.app.beans.Course" id="c1">
+    	<property name="name" value="java full stack "></property>
+    </bean>
+
+</beans>
