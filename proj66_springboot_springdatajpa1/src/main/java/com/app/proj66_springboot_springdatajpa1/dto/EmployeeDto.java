@@ -14,6 +14,10 @@ public class EmployeeDto {
         this.salary = salary;
     }
 
+    public EmployeeDto() {
+
+    }
+
     public Integer getEid() {
         return eid;
     }

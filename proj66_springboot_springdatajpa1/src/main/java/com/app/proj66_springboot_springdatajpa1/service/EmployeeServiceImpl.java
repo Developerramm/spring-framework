@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service("empService")
 public class EmployeeServiceImpl implements EmployeeService {
@@ -51,6 +52,42 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 
         return ids;
+    }
+
+    @Override
+    public long getTotlaNoOfEmployees() {
+        return  empRepo.count();
+    }
+
+    @Override
+    public boolean isEmployeeExist(Integer id) {
+       return empRepo.existsById(id);
+    }
+
+    @Override
+    public void deleteEmployeeById(Integer id) {
+        empRepo.deleteById(id);
+    }
+
+    @Override
+    public Optional<EmployeeDto> gitEmployeebyId(Integer id) {
+
+        Optional<EmployeeEntity> entityInOptional =  empRepo.findById(id);
+
+        Optional<EmployeeDto> optionalDto = Optional.empty();
+
+        if(entityInOptional.isPresent()){
+          EmployeeEntity entity =  entityInOptional.get();
+
+          // convert entity to dto
+            EmployeeDto dto = new EmployeeDto();
+            BeanUtils.copyProperties(entity,dto);
+
+           optionalDto =  Optional.of(dto);
+        }
+
+
+        return optionalDto;
     }
 
 }

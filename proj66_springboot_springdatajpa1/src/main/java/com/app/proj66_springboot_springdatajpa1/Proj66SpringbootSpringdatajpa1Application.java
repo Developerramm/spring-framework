@@ -27,12 +27,32 @@ public class Proj66SpringbootSpringdatajpa1Application {
                 // controller.processEmployeeRegRequest(dto);
 
                 // inserting record in a batch
+                //
+                // Integer[] ids = controller.processEmpRegisterInGroup(
+                // List.of(new EmployeeDto(1008, "priya", "p@gmail.com",1000d),
+                // new EmployeeDto(1009, "ranjana", "riya@gmail.com", 2000d),
+                // new EmployeeDto(1010, "charu", "param@gmail.com", 10000d)));
+                //
+                // System.out.println("Saved ids " + Arrays.toString(ids));
 
-                Integer[] ids = controller.processEmpRegisterInGroup(
-                List.of(new EmployeeDto(1008, "priya", "p@gmail.com",1000d),
-                        new EmployeeDto(1009, "ranjana", "riya@gmail.com", 2000d),
-                        new EmployeeDto(1010, "charu", "param@gmail.com", 10000d)));
+                // get total record count
 
-                System.out.println("Saved ids " + Arrays.toString(ids));
+                // long TotalEmployees = controller.getTotalEmployeeRecordCount();
+                // System.out.println("total number of register employee " + TotalEmployees);
+
+                // check the entity available or not
+                // boolean emp = controller.isEmployeeRegistered(1005);
+                //
+                // if (emp) {
+                // System.out.println("employee with the given id is registered ");
+                // } else {
+                // System.out.println("Employee with the given id is not registered");
+                // }
+                //
+                // // deleting the entity or record
+                // controller.processDeleteEmployee(1007);
+
+                controller.checkEmployee(1004);
+
         }
 }
