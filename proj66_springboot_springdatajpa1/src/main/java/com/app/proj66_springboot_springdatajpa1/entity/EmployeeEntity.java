@@ -19,6 +19,14 @@ public class EmployeeEntity implements Serializable {
     private String email;
     private Double salary;
 
+    // public EmployeeEntity(Integer eid, String ename, String email, Double salary)
+    // {
+    // this.eid = eid;
+    // this.ename = ename;
+    // this.email = email;
+    // this.salary = salary;
+    // }
+
     public Integer getEid() {
         return eid;
     }

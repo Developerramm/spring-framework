@@ -5,6 +5,8 @@ import com.app.proj66_springboot_springdatajpa1.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller("empController")
 public class EmployeeController {
 
@@ -20,5 +22,9 @@ public class EmployeeController {
        }else{
            System.out.println("Registration failed");
        }
+    }
+
+    public  Integer[] processEmpRegisterInGroup(List<EmployeeDto> empDtoList){
+         return   empService.regisgerEmployeeInGroup(empDtoList);
     }
 }

@@ -8,8 +8,11 @@ import com.app.proj66_springboot_springdatajpa1.entity.EmployeeEntity;
 import com.app.proj66_springboot_springdatajpa1.repo.EmployeeRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service("empService")
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeRepo empRepo;
@@ -19,12 +22,35 @@ public class EmployeeServiceImpl implements EmployeeService{
         // convert the dto to entity
 
         EmployeeEntity entity = new EmployeeEntity();
-        BeanUtils.copyProperties(empDto,entity);
+        BeanUtils.copyProperties(empDto, entity);
 
         // save the entity
 
-        EmployeeEntity savedEntity =  empRepo.save(entity);
+        EmployeeEntity savedEntity = empRepo.save(entity);
         return savedEntity.getEid();
+    }
+
+    @Override
+    public Integer[] regisgerEmployeeInGroup(List<EmployeeDto> listEmpDto) {
+
+        // convert the dto list to entity list
+        List<EmployeeEntity> listEntity = new ArrayList<>();
+
+        listEmpDto.forEach(dto -> {
+            EmployeeEntity entity = new EmployeeEntity();
+            BeanUtils.copyProperties(dto, entity);
+            listEntity.add(entity);
+        });
+
+        List<EmployeeEntity> savedData = (List<EmployeeEntity>) empRepo.saveAll(listEntity);
+
+        Integer[] ids = new Integer[savedData.size()];
+
+        for (int i = 0; i < savedData.size(); i++) {
+            ids[i] = savedData.get(i).getEid();
+        }
+
+        return ids;
     }
 
 }
