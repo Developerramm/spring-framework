@@ -14,6 +14,10 @@ public class EmployeeDto {
         this.salary = salary;
     }
 
+    public EmployeeDto(Integer eid) {
+        this.eid = eid;
+    }
+
     public EmployeeDto() {
 
     }

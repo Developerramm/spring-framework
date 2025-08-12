@@ -90,4 +90,71 @@ public class EmployeeServiceImpl implements EmployeeService {
         return optionalDto;
     }
 
+    @Override
+    public String deleteEmployeeById(int id) {
+        Optional<EmployeeEntity> optionalEntity = empRepo.findById(id);
+
+        String status = "";
+        if(optionalEntity.isPresent()){
+            empRepo.delete(optionalEntity.get());
+            status = "Employee deleted";
+        }else {
+            status = "Employee cannot be deleted,as there is no employee of this given id";
+        }
+
+        return status;
+    }
+
+    @Override
+    public List<EmployeeDto> getAllEmployees() {
+        Iterable <EmployeeEntity> itrEntities = empRepo.findAll();
+        Iterable<EmployeeDto> itrDto = new ArrayList<EmployeeDto>();
+
+        itrEntities.forEach(entity->{
+            EmployeeDto dto = new EmployeeDto();
+            BeanUtils.copyProperties(entity,dto);
+            ((List<EmployeeDto>)itrDto).add(dto);
+        });
+
+        return (List<EmployeeDto>) itrDto;
+    }
+
+    @Override
+    public String removeEmployeesByGivenEntities(List<EmployeeDto> empDtoList) {
+        // convert dto entity list
+        List<EmployeeEntity> entityList = new ArrayList();
+        empDtoList.forEach(dto->{
+            EmployeeEntity entity = new EmployeeEntity();
+            BeanUtils.copyProperties(dto,entity);
+            entityList.add(entity);
+        });
+        empRepo.deleteAll(entityList);
+        return "Entities Deleted";
+    }
+
+    // @Override
+    // public List<EmployeeDto> getEmployeesByIds(List<Integer> ids) {
+    //     // TODO Auto-generated method stub
+    //    List<EmployeeEntity> entityList = (List<EmployeeEntity>) empRepo.findAll(ids);
+    //     List<EmployeeDto> dtoList = new ArrayList<EmployeeDto>();
+    //          entityList.forEach(entity->{
+    //              EmployeeDto dto = new EmployeeDto();
+    //              BeanUtils.copyProperties(entity,dto);
+    //              dtoList.add(dto);
+    //          });
+    //          return dtoList;
+    // }
+
+    @Override
+    public List<EmployeeDto> getEmployeesByIds(List<Integer> ids) {
+        List<EmployeeEntity> listEntity = (List<EmployeeEntity>)empRepo.findAll(ids);
+        List<EmployeeDto> dtoList = new ArrayList<EmployeeDto>();
+        listEntity.forEach(entity->{
+            EmployeeDto dto = new EmployeeDto();
+            BeanUtils.copyProperties(entity,dto);
+            dtoList.add(dto);
+        });
+        return dtoList;
+    }
+
 }

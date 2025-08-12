@@ -52,7 +52,22 @@ public class Proj66SpringbootSpringdatajpa1Application {
                 // // deleting the entity or record
                 // controller.processDeleteEmployee(1007);
 
-                controller.checkEmployee(1004);
+                // controller.checkEmployee(1004);
+
+                // controller.deleteEmployee(1006);
+
+                // controller.getAllEmployees();
+
+                // controller.deleteAllGivenEntities(List.of(
+                // new EmployeeDto(1001),
+                // new EmployeeDto(1002),
+                // new EmployeeDto(1003)
+                // ));
+
+//                controller.getAllEmployeesByIds(List.of(
+//                                (1008),
+//                                (1009)));
 
         }
 }
+                             
