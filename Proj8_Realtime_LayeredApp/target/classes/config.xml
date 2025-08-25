@@ -18,11 +18,11 @@
     </bean>
     
     
-    <bean class="com.app.student.dao.StudentServiceImpl" id="studentService">
+    <bean class="com.app.student.service.StudentServiceImpl" id="studentService">
     	<constructor-arg name="studentDao" ref="studentDao"></constructor-arg>
     </bean>
     
-     <bean class="com.app.student.dao.StudentMainController " id="controller">
+     <bean class="com.app.student.controller.StudentMainController" id="controller">
     	<constructor-arg name="studentService" ref="studentService"></constructor-arg>
     </bean>
     
