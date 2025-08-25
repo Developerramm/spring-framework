@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    
+    <bean class="java.util.Date" id="d1">
+    	<property name="year" value="124"></property>
+    	<property name="month" value="5"></property>
+    	<property name="date" value="14"></property>
+    </bean>
+    
+    <bean class="java.util.Date" id="d2">
+    	<property name="year" value="122"></property>
+    	<property name="month" value="5"></property>
+    	<property name="date" value="19"></property>
+    </bean>
+    
+    
+    <bean class="com.app.beans.Student" id="student">
+    	<property name="name" value="ramkumar"></property>
+    	<property name="marks">
+    		<array>
+    			<value>100</value>
+    			<value>90</value>
+    			<value>80</value>
+    			<value>70</value>
+    			<value>90</value>
+    		</array>
+    	</property>
+    </bean>
+    
+    
+    <bean class="com.app.beans.Faculty" id="faculty">
+    
+    	<property name="name">
+    		<list>
+    		
+    			<value>Ram kumar</value>
+    			<value>Amit pal</value>
+    			<value>Dimple giri</value>
+    			<value>ranjana giri</value>
+    		</list>
+    	
+    	</property>
+    	
+    	<property name="joiningDate">
+    		<list>
+    		
+    			<ref bean="d1" />
+    			<ref bean="d2" />
+    		</list>
+    	</property>
+    
+    </bean>
+    
+    <bean class="com.app.beans.Employee" id="emp">
+    
+    <property name="name">
+    		<list>
+    		
+    			<value>Sarita</value>
+    			<value>Rohan</value>
+    			<value>Dimple giri</value>
+    			<value>ranjana giri</value>
+    		</list>
+    	
+    	</property>
+    	
+    	<property name="joiningDate">
+    		<list>
+    		
+    			<ref bean="d1" />
+    			<ref bean="d2" />
+    		</list>
+    	</property>
+    
+    
+    </bean>
+    
+    <bean class="com.app.beans.User" id="user">
+    	<property name="phoneNumbers">
+    		<set value-type="java.lang.Long">
+    			<value>14785</value>
+    			<value>11111</value>
+    			<value>22222</value>
+    			<value>44444</value>
+    		</set>
+    	</property>
+    	
+    	<property name="emailIds">
+    		<set>
+    			<value>abc@gmail.com</value>
+    			<value>b@gmail.com</value>
+    		</set>
+    	</property>
+    </bean>
+    
+    <bean class="com.app.beans.CollegeInfo" id="clg">
+    
+    	<property name="hod">
+    		<map>
+    			<entry key = "Physics" value="Rk raman"></entry>
+    			<entry key="IT" value="Ram bhai"></entry>
+    		</map>
+    	</property>
+    	
+    	<property name="holidays">
+    	
+    		<map>
+    			<entry key="holi" value-ref="d1"></entry>
+    			<entry key="deepawali" value-ref="d2"></entry>
+    		</map>
+    	</property>
+    
+    </bean>
+  
+ 
+    
+   
+</beans>
