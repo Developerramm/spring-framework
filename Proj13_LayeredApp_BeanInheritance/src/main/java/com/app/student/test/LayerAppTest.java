@@ -19,11 +19,11 @@ public class LayerAppTest {
 		
 		StudentVo vo = new StudentVo();
 		
-		vo.setId("1007");
-		vo.setName("Pooja");
-		vo.setEmail("pooja@gmail.com");
-		vo.setCourseName("React developer");
-		vo.setObtMarks("400");
+		vo.setId("1008");
+		vo.setName("Prem raj");
+		vo.setEmail("prema@gmail.com");
+		vo.setCourseName("Angular developer");
+		vo.setObtMarks("350");
 		
 		try {
 			controller.registerStudentRequest(vo);
