@@ -6,13 +6,10 @@
 
     <!-- bean definitions here -->
     
-    <bean class="com.app.beans.Car" id="car">
+    <bean class="com.app.beans.Car" id="car" abstract="true">
     
     	<property name="model" value="creta 2025"></property>
-    	<property name="regNo" value="xh-45872"></property>
     	<property name="enginePower" value="2500"></property>
-    	<property name="tyre" value="mrf"></property>
-    	<property name="fuelType" value="Petrol"></property>
     	<property name="company" value="Hundai"></property>
     	
     
@@ -20,16 +17,15 @@
     
     
      <bean class="com.app.beans.Car" id="car1" parent = "car">
-     
-  		<!--  
-     	<property name="model" value="creta 2025"></property>
-    	<property name="regNo" value="xh-45872"></property>
-    	<property name="enginePower" value="2500"></property>
+    	<property name="regNo" value="xh-45872000"></property>
     	<property name="tyre" value="mrf"></property>
-    	<property name="fuelType" value="Petrol"></property>
-    	<property name="company" value="Hundai"></property>
-    	-->
-    	
+    	<property name="fuelType" value="petrol"></property>
+    </bean>
+    
+     <bean class="com.app.beans.Car" id="car2" parent = "car">
+    	<property name="regNo" value="xh-52000"></property>
+    	<property name="tyre" value="cate"></property>
+    	<property name="fuelType" value="diesel"></property>
     </bean>
    
 </beans>

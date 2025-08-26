@@ -14,13 +14,13 @@ public class BeanInheritanceTest {
 		
 		Car car = null;
 		
-		car = context.getBean("car",Car.class);
+		car = context.getBean("car1",Car.class);
 		
 		System.out.println(car);
 		
 		System.out.println("_______________________________________");
 		
-		car = context.getBean("car1",Car.class);
+		car = context.getBean("car2",Car.class);
 		
 		System.out.println(car);
 	}
