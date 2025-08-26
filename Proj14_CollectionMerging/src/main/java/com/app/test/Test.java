@@ -26,7 +26,9 @@ public class Test {
 		
 		System.out.println("_______________________________________");
 		
+		student = context.getBean("com.app.beans.Student",Student.class);
 		
+		System.out.println(student);
 	
 	}
 
