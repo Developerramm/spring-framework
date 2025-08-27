@@ -6,13 +6,16 @@
 
     <!-- bean definitions here -->
     
-    <bean class="com.app.beans.Delivery" id="logisticsService"></bean>
+    <bean class="com.app.beans.Delivery" id="logisticsService2" primary="true"></bean>
     
-    <bean class="com.app.beans.Bluedart" id="logisticsService2"></bean>
+    <bean class="com.app.beans.Bluedart" id="logisticsService"></bean>
     
-    <bean class="com.app.beans.Amazon" id="amazon" autowire="byName">
+  <!--   <bean class="com.app.beans.Amazon" id="amazon" autowire="byName">
+    </bean>  -->
+    
+    <bean class="com.app.beans.Amazon" id="amazon" autowire="byType">
     
     </bean>
-
+ 
  
 </beans>
