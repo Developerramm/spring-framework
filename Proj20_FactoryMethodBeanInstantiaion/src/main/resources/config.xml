@@ -9,6 +9,15 @@
   	<bean class="java.lang.Class" id="c1" factory-method="forName">
   		<constructor-arg value="java.util.Date"></constructor-arg>
   	</bean>
+  	
+  	<bean class="java.lang.String" id="s1">
+  		<constructor-arg value="hello "></constructor-arg>
+  	</bean>
+  	
+  	<bean class="java.lang.String" id="s2" factory-bean="s1" 
+  		factory-method="concat">
+  			<constructor-arg value=" world"></constructor-arg>
+  		</bean>
  
  
 </beans>
