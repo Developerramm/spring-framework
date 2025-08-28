@@ -11,6 +11,15 @@
     	<property name="name" value="Ram kumar"></property>
     
     </bean>
+    
+    
+    <bean class="com.app.beans.Student" id="student2">
+    
+    	<property name="name" value="Dimple giri"></property>
+    
+    </bean>
+    
+    <bean class="com.app.beans.Faculty" id="faculty" scope="prototype"></bean>
 
  
 </beans>
