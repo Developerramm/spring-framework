@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.app.beans.Amazon;
 import com.app.beans.Student;
 
 public class PreInstantiationSingletonBeanTest {
@@ -13,13 +14,18 @@ public class PreInstantiationSingletonBeanTest {
 		
 		context = new ClassPathXmlApplicationContext("config.xml");
 		
-		Student s1 = context.getBean("student",Student.class);
-		
-		s1.showStudentDetails();
-		
-		System.out.println(s1.hashCode());
+//		Student s1 = context.getBean("student",Student.class);
+//		
+//		s1.showStudentDetails();
+//		
+//		System.out.println(s1.hashCode());
 		
 		System.out.println(context);
+		
+		System.out.println("----------------------------------");
+		
+		Amazon amazon = context.getBean("amazon",Amazon.class);
+		
 		
 		((AbstractApplicationContext)context).close();
 	}

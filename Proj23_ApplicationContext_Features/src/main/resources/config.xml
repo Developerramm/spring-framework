@@ -6,8 +6,14 @@
 
     <!-- bean definitions here -->
     
-    <bean class="com.app.beans.Student" id="student">
+    <bean class="com.app.beans.Student" id="student" lazy-init="true">
     	<property name="name" value="ram"></property>
+    </bean>
+    
+    <bean class = "com.app.beans.Delivery" id = "logistics1" scope="prototype"></bean>
+    
+    <bean class = "com.app.beans.Amazon" id="amazon">
+    	<property name="delivery" ref="logistics1"></property>
     </bean>
     
 
