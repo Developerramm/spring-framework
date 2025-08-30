@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        ">
+
+    <!-- bean definitions here -->
+    
+    <bean class="java.util.Date" id="d1" 
+    	p:year="125" p:month="7" p:date="29">
+    </bean>
+    
+    <bean class="com.app.beans.Employee" id="employee" 
+    	p:name="Ram maniyari" p:date-ref="d1">
+    </bean>
+    
+    <bean class="com.app.beans.Student" id="student" c:name="Sarita"
+    	c:date="d1"
+     />
+     
+    
+  <!--  <bean id="student" class="com.app.beans.Student" 
+      c:name="John" c:dob="2000-01-01"/> -->
+     
+    
+   
+
+</beans>
