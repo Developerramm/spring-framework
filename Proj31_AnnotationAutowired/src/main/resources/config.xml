@@ -13,7 +13,7 @@
     
     <bean class="com.app.beans.Delivery" id="delivery"></bean>
     
-    <bean class="com.app.beans.BlueDart" id="bluedart" primary="true"></bean>
+    <bean class="com.app.beans.BlueDart" id="bluedart"></bean>
     
     <bean class="com.app.beans.Amazon" id="amazon"></bean>
     
