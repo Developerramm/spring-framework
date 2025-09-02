@@ -5,6 +5,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.app.beans.AccountHolder;
+import com.app.beans.CreditCard;
 import com.app.beans.Employee;
 import com.app.beans.Student;
 import com.app.beans.User;
@@ -28,6 +29,9 @@ public class SprinBeanLifeCycleTest {
 		System.out.println(student);
 		
 		System.out.println(ac);
+		
+		CreditCard card = context.getBean("card",CreditCard.class);
+		System.out.println(card);
 		
 		((AbstractApplicationContext)context).close();
 	}
