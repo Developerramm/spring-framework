@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-destroy-method="destroy" default-init-method="init"
+	xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        ">
+
+    <!-- bean definitions here -->
+    
+    <bean class="java.util.Date" p:year="125" p:month="8" p:date="2" id="d1" />
+    	
+	<bean class="com.app.beans.User" id="user" p:name="ram" p:regDate-ref="d1" />
+	
+	<bean class="com.app.beans.Student" 
+	id="student" p:name="sarita" p:dob-ref="d1" />
+	
+	<bean class="com.app.beans.Employee"
+	 id="employee" p:name="pooja" p:joiningDate-ref="d1" />
+    
+    
+</beans>
