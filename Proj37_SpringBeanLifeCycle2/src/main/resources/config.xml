@@ -22,6 +22,8 @@
 	
 	<bean class="com.app.beans.Employee"
 	 id="employee" p:name="pooja" p:joiningDate-ref="d1" />
+	 
+	 <bean class="com.app.beans.AccountHolder" id="ac" p:name="Charu" />
     
     
 </beans>
