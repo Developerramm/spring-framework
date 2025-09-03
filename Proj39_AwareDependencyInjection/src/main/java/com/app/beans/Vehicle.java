@@ -1,13 +1,17 @@
 package com.app.beans;
 
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 
-public class Vehicle {
+public class Vehicle implements ApplicationContextAware{
 	
 	private Engine engine;
 	
 	private String dependentBeanId;
+	
+	private ApplicationContext context;
 	
 	public String getDependentBeanId() {
 		return dependentBeanId;
@@ -29,7 +33,7 @@ public class Vehicle {
 		System.out.println("head light turn on");
 	}
 	
-	public void journey(ApplicationContext context) {
+	public void journey() {
 		
 //		ApplicationContext context = null;
 //		context = new ClassPathXmlApplicationContext("config.xml");
@@ -39,6 +43,11 @@ public class Vehicle {
 		engine.startEngine();
 		System.out.println("Journey continue and reached to the destination");
 		engine.stopEngine();
+	}
+
+	@Override
+	public void setApplicationContext(ApplicationContext context) throws BeansException {
+		this.context = context;
 	}
 
 }

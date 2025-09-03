@@ -19,7 +19,7 @@ public class AwareInjectionTest {
 		System.out.println(vehicle);
 		
 		vehicle.musicSystem();
-		vehicle.journey(context);
+		vehicle.journey();
 		
 		
 		((AbstractApplicationContext)context).close();
