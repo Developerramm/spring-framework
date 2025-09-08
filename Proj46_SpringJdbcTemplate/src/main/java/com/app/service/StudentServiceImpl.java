@@ -16,6 +16,12 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		return dao.getTotalNoOfStudents();
 	}
+
+	@Override
+	public String getStudentName(int id) throws Exception {
+		
+		return dao.getStudentNameById(id);
+	}
 	
 	
 

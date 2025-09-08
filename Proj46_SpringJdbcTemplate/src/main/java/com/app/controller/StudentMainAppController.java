@@ -1,11 +1,8 @@
 package com.app.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import com.app.dto.StudentDto;
 import com.app.service.StudentService;
-import com.app.vo.StudentVo;
+
 
 public class StudentMainAppController {
 	
@@ -19,6 +16,10 @@ public class StudentMainAppController {
 		
 		return studentService.getTotalNoOfStudents();
 		
+	}
+	
+	public String fetchStudentNameById(int id) throws Exception {
+		return studentService.getStudentName(id);
 	}
 
 }

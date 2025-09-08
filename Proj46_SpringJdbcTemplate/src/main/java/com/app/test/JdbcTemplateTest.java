@@ -23,6 +23,10 @@ public class JdbcTemplateTest {
 		
 		 	int i = controller.fetchTotalNoOfStudents();
 		 	System.out.println("total students " + i);
+		 	System.out.println("-------------------------------------");
+		 
+		 	String name = controller.fetchStudentNameById(1001);
+		 	System.out.println("Name is " + name);
 		
 	 	}catch (Exception e) {
 		
