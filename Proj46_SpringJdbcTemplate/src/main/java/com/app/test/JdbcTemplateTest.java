@@ -1,5 +1,6 @@
 package com.app.test;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
@@ -33,6 +34,11 @@ public class JdbcTemplateTest {
 		 	
 		 	Map m = controller.fetchStudentDetails(1005);
 		 	System.out.println(m);
+		 	
+		 	System.out.println("---------------------------------------");
+		 	
+		 	List studentlist = controller.fetchStudentByCourseName("java");
+		 	System.out.println(studentlist);
 		
 	 	}catch (Exception e) {
 		

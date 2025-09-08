@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.app.dao.StudentDao;
@@ -29,6 +30,12 @@ public class StudentServiceImpl implements StudentService {
 	public Map<String, Object> getStudentDetails(int id) throws Exception {
 		
 		return dao.getStudentDetailsById(id);
+	}
+
+	@Override
+	public List<Map<String, Object>> getStudentByCourseName(String course) throws Exception {
+		
+		return dao.getAllStudent(course);
 	}
 	
 	

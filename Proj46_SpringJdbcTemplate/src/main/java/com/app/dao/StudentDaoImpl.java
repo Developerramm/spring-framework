@@ -1,5 +1,6 @@
 package com.app.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,6 +16,9 @@ public class StudentDaoImpl implements StudentDao {
 	private static final String getStudentDetails = "SELECT  id,"
 			+ "name,email,course_name,obtained_marks,grade FROM student_details"
 			+ " WHERE id = ?";
+	
+	private static final String getAllStudentList = "SELECT * FROM student_details "
+			+ "WHERE course_name = ?"; 
 			
 	
 	
@@ -55,6 +59,16 @@ public class StudentDaoImpl implements StudentDao {
 		studentRecord=jdbcTemplate.queryForMap(getStudentDetails, id);
 		
 		return studentRecord;
+	}
+
+
+	@Override
+	public List<Map<String, Object>> getAllStudent(String course) throws Exception {
+		
+		List<Map<String, Object>> studentList = null;
+		studentList = jdbcTemplate.queryForList(getAllStudentList,course);
+		
+		return studentList;
 	}
 
 }
