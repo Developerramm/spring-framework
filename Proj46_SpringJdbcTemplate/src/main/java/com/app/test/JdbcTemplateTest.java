@@ -1,5 +1,7 @@
 package com.app.test;
 
+import java.util.Map;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,6 +29,10 @@ public class JdbcTemplateTest {
 		 
 		 	String name = controller.fetchStudentNameById(1001);
 		 	System.out.println("Name is " + name);
+		 	System.out.println("-------------------------------------");
+		 	
+		 	Map m = controller.fetchStudentDetails(1005);
+		 	System.out.println(m);
 		
 	 	}catch (Exception e) {
 		

@@ -1,6 +1,8 @@
 package com.app.controller;
 
 
+import java.util.Map;
+
 import com.app.service.StudentService;
 
 
@@ -20,6 +22,10 @@ public class StudentMainAppController {
 	
 	public String fetchStudentNameById(int id) throws Exception {
 		return studentService.getStudentName(id);
+	}
+	
+	public Map<String, Object> fetchStudentDetails(int id) throws Exception{
+		return studentService.getStudentDetails(id);
 	}
 
 }

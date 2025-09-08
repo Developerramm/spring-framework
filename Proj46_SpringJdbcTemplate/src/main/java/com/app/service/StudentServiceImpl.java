@@ -1,5 +1,7 @@
 package com.app.service;
 
+import java.util.Map;
+
 import com.app.dao.StudentDao;
 
 
@@ -21,6 +23,12 @@ public class StudentServiceImpl implements StudentService {
 	public String getStudentName(int id) throws Exception {
 		
 		return dao.getStudentNameById(id);
+	}
+
+	@Override
+	public Map<String, Object> getStudentDetails(int id) throws Exception {
+		
+		return dao.getStudentDetailsById(id);
 	}
 	
 	

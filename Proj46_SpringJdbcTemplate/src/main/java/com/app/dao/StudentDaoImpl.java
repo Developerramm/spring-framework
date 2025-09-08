@@ -1,5 +1,7 @@
 package com.app.dao;
 
+import java.util.Map;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class StudentDaoImpl implements StudentDao {
@@ -9,6 +11,10 @@ public class StudentDaoImpl implements StudentDao {
 	
 	private static final String getName = "SELECT name FROM "
 			+ "student_details WHERE id = ?";
+	
+	private static final String getStudentDetails = "SELECT  id,"
+			+ "name,email,course_name,obtained_marks,grade FROM student_details"
+			+ " WHERE id = ?";
 			
 	
 	
@@ -39,6 +45,16 @@ public class StudentDaoImpl implements StudentDao {
 		
 		// TODO Auto-generated method stub
 		return studentName;
+	}
+
+
+	@Override
+	public Map<String, Object> getStudentDetailsById(int id) throws Exception {
+		
+		Map<String, Object> studentRecord = null;
+		studentRecord=jdbcTemplate.queryForMap(getStudentDetails, id);
+		
+		return studentRecord;
 	}
 
 }
