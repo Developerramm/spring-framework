@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -47,20 +48,23 @@ public class StudentDaoImpl implements StudentDao {
 				
 			// using lembda expression
 				
-				(rs,rowNum)->{
-					
-					StudentEntity studentEntity = null;
-					studentEntity = new StudentEntity();
-					
-					studentEntity.setId(rs.getInt(1));
-					studentEntity.setName(rs.getString(2));
-					studentEntity.setEmail(rs.getString(3));
-					studentEntity.setObtained_marks(rs.getInt(5));
-					studentEntity.setCourse_name(rs.getString(4));
-					studentEntity.setGrade(rs.getString(6));
-					
-					return studentEntity;
-				}
+//				(rs,rowNum)->{
+//					
+//					StudentEntity studentEntity = null;
+//					studentEntity = new StudentEntity();
+//					
+//					studentEntity.setId(rs.getInt(1));
+//					studentEntity.setName(rs.getString(2));
+//					studentEntity.setEmail(rs.getString(3));
+//					studentEntity.setObtained_marks(rs.getInt(5));
+//					studentEntity.setCourse_name(rs.getString(4));
+//					studentEntity.setGrade(rs.getString(6));
+//					
+//					return studentEntity;
+//				}
+				
+				// using pre define class
+				new BeanPropertyRowMapper<StudentEntity>(StudentEntity.class)
 		
 				,
 				
