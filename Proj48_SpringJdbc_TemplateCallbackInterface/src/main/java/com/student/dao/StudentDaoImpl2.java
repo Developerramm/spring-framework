@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.student.entity.StudentEntity;
 
 
-@Repository("studentDao")
+//@Repository("studentDao")
 public class StudentDaoImpl2 implements StudentDao{
 	
 	private static final String GET_STUDENT_BY_ID = "SELECT * FROM student_details"
