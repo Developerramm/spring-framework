@@ -49,32 +49,53 @@ public class StudentDaoImpl2 implements StudentDao{
 		studentEntity = jdbcTemplate.query(
 				GET_STUDENT_BY_COURSE, 
 				
-				new ResultSetExtractor<List<StudentEntity>>() {
-
-					@Override
-					public List<StudentEntity> extractData(ResultSet rs) throws SQLException, DataAccessException {
-
-						List<StudentEntity> studentList = null;
-						StudentEntity entity = null;
-						
-						studentList = new ArrayList<StudentEntity>();
-						
-						while(rs.next()) {
-							entity = new StudentEntity();
-							
-							entity.setId(rs.getInt(1));
-							entity.setName(rs.getString(2));
-							entity.setEmail(rs.getString(3));
-							entity.setCourse_name(rs.getString(4));
-							entity.setObtained_marks(rs.getInt(5));
-							entity.setGrade(rs.getString(6));
-							
-							studentList.add(entity);
-						}
-						return studentList;
-					}
+				// using lembda expression
+				
+				rs->{
+					List<StudentEntity> studentList = null;
+					StudentEntity entity = null;
 					
+					studentList = new ArrayList<StudentEntity>();
+					
+					while(rs.next()) {
+						entity = new StudentEntity();
+						
+						entity.setId(rs.getInt(1));
+						entity.setName(rs.getString(2));
+						entity.setEmail(rs.getString(3));
+						entity.setCourse_name(rs.getString(4));
+						entity.setObtained_marks(rs.getInt(5));
+						entity.setGrade(rs.getString(6));
+						
+						studentList.add(entity);
+					}
+					return studentList;
 				}
+				
+//				new ResultSetExtractor<List<StudentEntity>>() {
+//					@Override
+//					public List<StudentEntity> extractData(ResultSet rs) throws SQLException, DataAccessException {
+//
+//						List<StudentEntity> studentList = null;
+//						StudentEntity entity = null;
+//						
+//						studentList = new ArrayList<StudentEntity>();
+//						
+//						while(rs.next()) {
+//							entity = new StudentEntity();
+//							
+//							entity.setId(rs.getInt(1));
+//							entity.setName(rs.getString(2));
+//							entity.setEmail(rs.getString(3));
+//							entity.setCourse_name(rs.getString(4));
+//							entity.setObtained_marks(rs.getInt(5));
+//							entity.setGrade(rs.getString(6));
+//							
+//							studentList.add(entity);
+//						}
+//						return studentList;
+//					}
+//				}
 				
 				,
 				course1,course2);
