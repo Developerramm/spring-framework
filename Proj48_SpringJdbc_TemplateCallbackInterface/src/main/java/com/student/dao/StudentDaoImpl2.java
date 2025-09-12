@@ -10,6 +10,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import com.student.entity.StudentEntity;
@@ -45,6 +46,17 @@ public class StudentDaoImpl2 implements StudentDao{
 	(String course1, String course2) throws Exception {
 		
 		List<StudentEntity> studentEntity = null;
+		
+		BeanPropertyRowMapper<StudentEntity> rowMapper = null;
+		rowMapper = new BeanPropertyRowMapper<StudentEntity>(StudentEntity.class);
+		
+	
+		studentEntity = jdbcTemplate.query(GET_STUDENT_BY_COURSE,
+				new RowMapperResultSetExtractor<StudentEntity>(rowMapper)
+				,
+				course1,course2);
+		
+/*		
 		
 		studentEntity = jdbcTemplate.query(
 				GET_STUDENT_BY_COURSE, 
@@ -99,8 +111,10 @@ public class StudentDaoImpl2 implements StudentDao{
 				
 				,
 				course1,course2);
-		
+		*/
 		return studentEntity;
+		
+		
 	}
 	
 	
