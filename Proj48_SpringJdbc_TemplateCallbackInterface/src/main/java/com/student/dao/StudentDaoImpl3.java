@@ -45,11 +45,33 @@ public class StudentDaoImpl3 implements StudentDao{
 		
 		List<StudentEntity> studentList = new ArrayList<StudentEntity>();
 		
-		jdbcTemplate.query(
-					GET_STUDENT_BY_COURSE,
-					new StudentRowCallbackHandler(studentList),
-					course1,course2
-				);
+		 jdbcTemplate.query(
+				 GET_STUDENT_BY_COURSE,
+		 	     //anonymous inner class implementation
+			     new RowCallbackHandler() {
+
+					@Override
+					public void processRow(ResultSet rs) throws SQLException {
+						
+						System.out.println("StudentDaoImpl3.StudentRowCallbackHandler.processRow()");
+						
+						StudentEntity entity = new StudentEntity();
+						entity.setId(rs.getInt(1));
+						entity.setName(rs.getString(2));
+						entity.setEmail(rs.getString(3));
+						entity.setCourse_name(rs.getString(4));
+						entity.setObtained_marks(rs.getInt(5));
+						entity.setGrade(rs.getString(6));
+						
+					
+
+						studentList.add(entity);
+						
+					}
+		 	    	 
+		 	     },
+			     course1,course2
+			   );
 		
 		return studentList;
 		
