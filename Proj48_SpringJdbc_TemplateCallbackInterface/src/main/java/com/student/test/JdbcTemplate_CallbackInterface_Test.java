@@ -1,5 +1,7 @@
 package com.student.test;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,8 +24,14 @@ public class JdbcTemplate_CallbackInterface_Test {
 		try {
 			StudentDto dto = null;
 			dto = controller.processGetStudentDetailRequest(1001);
-			
 			System.out.println(dto);
+			
+			System.out.println("--------------------------------");
+			System.out.println("Multiple record using resultset extractor");
+			
+			List<StudentDto> studentDtos =  controller.fetchStudentList("java", "Angular developer");
+			
+			System.out.println(studentDtos);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

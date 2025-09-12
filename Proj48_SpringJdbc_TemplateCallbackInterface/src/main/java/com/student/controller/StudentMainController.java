@@ -1,5 +1,7 @@
 package com.student.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -14,6 +16,11 @@ public class StudentMainController {
 	
 	public StudentDto processGetStudentDetailRequest(int id) throws Exception {
 		return studentService.getStudentDetailsById(id);
+	}
+	
+	public List<StudentDto> fetchStudentList(String c1,String c2) throws Exception{
+		
+		return studentService.getStudentListByCourseName(c1, c2);
 	}
 
 }

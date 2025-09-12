@@ -2,6 +2,7 @@ package com.student.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.student.entity.StudentEntity;
 
-@Repository("studentDao")
+//@Repository("studentDao")
 public class StudentDaoImpl implements StudentDao {
 	
 	private static final String GET_STUDENT_BY_ID = "SELECT * FROM student_details"
@@ -92,6 +93,12 @@ private static class StudentMapper implements RowMapper<StudentEntity>{
 		}
 		
 	}
+
+@Override
+public List<StudentEntity> getStudentListByCourse(String course1, String course2) throws Exception {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 }
 
