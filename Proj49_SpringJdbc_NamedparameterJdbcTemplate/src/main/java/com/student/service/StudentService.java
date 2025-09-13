@@ -1,8 +1,15 @@
 package com.student.service;
 
+import java.util.List;
+
+import com.student.dto.StudentDto;
 
 public interface StudentService {
 	
 	public String getStudentName(int id) throws Exception;
+	
+	public List<StudentDto> getStudentDetailsByCourse(String course1, String course2) throws Exception;
+	
+	
 
 }

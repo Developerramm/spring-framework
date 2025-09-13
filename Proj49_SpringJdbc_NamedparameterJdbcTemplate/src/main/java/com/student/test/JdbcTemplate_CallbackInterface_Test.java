@@ -7,6 +7,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.student.controller.StudentMainController;
+import com.student.dto.StudentDto;
 
 
 public class JdbcTemplate_CallbackInterface_Test {
@@ -24,6 +25,13 @@ public class JdbcTemplate_CallbackInterface_Test {
 		try {
 			String studentName = controller.fetchStudentName(1001);
 			System.out.println("Student Name is " +  studentName);
+			
+			System.out.println("------------------------------");
+			List<StudentDto> dto = null;
+			
+			dto =  controller.fetchStudentDetailsByCourse("java", "Angular developer");
+			
+			System.out.println(dto);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
