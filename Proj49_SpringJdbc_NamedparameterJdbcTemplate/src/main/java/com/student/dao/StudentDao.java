@@ -11,5 +11,7 @@ public interface StudentDao {
 	public List<StudentEntity> getStudentDetailsByCourse(
 			String course1, String course2) throws Exception;
 	
+	public int resgisterStudent(StudentEntity entity) throws Exception;
+	
 	
 }

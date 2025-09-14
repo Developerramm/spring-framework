@@ -33,6 +33,20 @@ public class JdbcTemplate_CallbackInterface_Test {
 			
 			System.out.println(dto);
 			
+			System.out.println("---------------------------------");
+			
+			StudentDto studentDto  = new StudentDto();
+			studentDto.setId(1013);
+			studentDto.setName("Piku");
+			studentDto.setEmail("abc@gmail.com");
+			studentDto.setCourseName("backend");
+			studentDto.setObtainedMarks(450);
+			studentDto.setGrade("A++");
+			
+			int studentCount = controller.processNewStudentRegistration(studentDto);
+			System.out.println("student count is " + studentCount); 
+			 
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

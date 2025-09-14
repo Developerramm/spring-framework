@@ -10,6 +10,6 @@ public interface StudentService {
 	
 	public List<StudentDto> getStudentDetailsByCourse(String course1, String course2) throws Exception;
 	
-	
+	public int registerNewStudent(StudentDto dto) throws Exception;
 
 }

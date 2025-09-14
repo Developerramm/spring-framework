@@ -22,5 +22,10 @@ public class StudentMainController {
 		return studentService.getStudentDetailsByCourse(c1, c2);
 	}
 	
+	public int processNewStudentRegistration(StudentDto dto) throws Exception{
+		int count = studentService.registerNewStudent(dto);
+		return count;
+	}
+	
 	
 }

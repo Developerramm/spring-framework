@@ -47,6 +47,24 @@ public class StudentServiceImpl implements StudentService {
 		
 		return studentDtoList;
 	}
+
+	@Override
+	public int registerNewStudent(StudentDto dto) throws Exception {
+		
+		StudentEntity entity = null;
+		entity = new StudentEntity();
+		
+		entity.setId(dto.getId());
+		entity.setName(dto.getName());
+		entity.setEmail(dto.getEmail());
+		entity.setCourse_name(dto.getCourseName());
+		entity.setObtained_marks(dto.getObtainedMarks());
+		entity.setGrade(dto.getGrade());
+		
+		int count = dao.resgisterStudent(entity);
+		
+		return count;
+	}
 	
 
 

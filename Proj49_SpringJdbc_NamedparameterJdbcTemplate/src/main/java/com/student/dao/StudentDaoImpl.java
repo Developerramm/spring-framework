@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -23,6 +24,10 @@ public class StudentDaoImpl implements StudentDao {
 	
 	private static final String GET_STUDENT_BY_COURSE = "SELECT * FROM student_details"
 			+ " WHERE course_name IN (:course1,:course2)";
+	
+	private static final String INSERT_STUDENT = "INSERT INTO student_details"
+			+ "(id,name, email,course_name,obtained_marks,grade) VALUES"
+			+ "(:id,:name,:email,:course_name,:obtained_marks,:grade)";
 	
 	@Autowired
 	@Qualifier("npmjt")
@@ -80,6 +85,17 @@ public class StudentDaoImpl implements StudentDao {
 					);
 		
 		return studentEntityList;
+	}
+
+
+	@Override
+	public int resgisterStudent(StudentEntity entity) throws Exception {
+		
+		BeanPropertySqlParameterSource bpsps = new BeanPropertySqlParameterSource(entity);
+		
+		int i =	npmjt.update(INSERT_STUDENT,bpsps);
+		
+		return i;
 	}
 	
 }
