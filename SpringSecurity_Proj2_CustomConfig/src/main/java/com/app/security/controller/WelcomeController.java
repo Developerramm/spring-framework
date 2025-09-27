@@ -11,4 +11,10 @@ public class WelcomeController {
 	{
 		return "Welcome page here , Your are learning spring security in spring boot";
 	}
+	
+	@GetMapping("hello")
+	public String hello() {
+		
+		return "This is hello method";
+	}
 }
