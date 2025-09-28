@@ -1,0 +1,14 @@
+package com.app.security;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringSecurityProj3CustomConfig3Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringSecurityProj3CustomConfig3Application.class, args);
+		System.out.println("project 3");
+	}
+
+}
