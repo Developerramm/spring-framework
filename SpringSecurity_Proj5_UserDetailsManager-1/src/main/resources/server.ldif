@@ -1,0 +1,9 @@
+dn: uid=manish,ou=users,dc=userdetails,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn:Manish
+sn:Kumar
+uid:manish
+userPassword: manish123
