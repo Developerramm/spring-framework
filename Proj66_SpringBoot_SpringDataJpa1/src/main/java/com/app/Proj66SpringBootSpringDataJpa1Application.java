@@ -33,6 +33,7 @@ public class Proj66SpringBootSpringDataJpa1Application {
 		controller.processEmployeeRegRequest(dto);
 		*/
 		
+		/*
 		System.out.println("-------------------------------------------------------");
 		
 		EmployeeDto dto1 = new EmployeeDto(1004, "Sarita", "sarita@gmail.com", 12000.0f);
@@ -45,6 +46,21 @@ public class Proj66SpringBootSpringDataJpa1Application {
 		
 		Integer[] empIds = controller.processEmpRegistrationInGroup(dtoList);
 		System.out.println(Arrays.toString(empIds));
+		*/
+		
+		System.out.println("-------------------------------------------------");
+		
+		long totalEmp = controller.getTotalEmpRecordCount();
+		System.out.println("Total Employes are " + totalEmp);
+		
+		System.out.println("----------------------------------------------------");
+		
+		controller.checkEmpById(1008);
+		
+		System.out.println("----------------------------------------------------");
+		
+		controller.deleteEmpByGivenId(1003);
+		
 	}
 
 }

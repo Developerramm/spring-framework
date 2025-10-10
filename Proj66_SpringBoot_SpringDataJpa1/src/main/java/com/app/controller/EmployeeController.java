@@ -30,5 +30,24 @@ public class EmployeeController {
 	public Integer[] processEmpRegistrationInGroup(List<EmployeeDto> empDtoList) {
 		return empService.registerEmployeeInGroup(empDtoList);
 	}
+	
+	public long getTotalEmpRecordCount() {
+		return empService.getTotalNoOfEmployees();
+	}
+	
+	public void checkEmpById(Integer id) {
+		boolean empExist = empService.checkEmpExist(id);
+		
+		if(empExist) {
+			System.out.println("Employee exist by given id " + id);
+		}else {
+			System.out.println("Employee does not exist by given id " + id);
+		}
+	}
+	
+	public void deleteEmpByGivenId(Integer id) {
+		empService.deleteEmpById(id);
+		System.out.println("employee deleted successfully");
+	}
 
 }

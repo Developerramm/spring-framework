@@ -14,5 +14,11 @@ public interface EmployeeService {
 	public Integer registerEmployee(EmployeeDto empDto);
 	
 	public Integer[] registerEmployeeInGroup(List<EmployeeDto> listEmpDto);
+	
+	public long getTotalNoOfEmployees();
+	
+	public boolean checkEmpExist(Integer id);
+	
+	public void deleteEmpById(Integer id);
 
 }

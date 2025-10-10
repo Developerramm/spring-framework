@@ -55,4 +55,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return ids;
 	}
 
+	@Override
+	public long getTotalNoOfEmployees() {
+		
+		return empRepo.count();
+	}
+
+	@Override
+	public boolean checkEmpExist(Integer id) {
+		
+		return empRepo.existsById(id);
+	}
+
+	@Override
+	public void deleteEmpById(Integer id) {
+		empRepo.deleteById(id);
+	}
+
 }
