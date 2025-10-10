@@ -59,7 +59,13 @@ public class Proj66SpringBootSpringDataJpa1Application {
 		
 		System.out.println("----------------------------------------------------");
 		
-		controller.deleteEmpByGivenId(1003);
+//		controller.deleteEmpByGivenId(1003);
+		
+		System.out.println("**************************************************");
+		System.out.println("---------------------------------------------");
+		controller.checkEmployee(1004);
+		System.out.println("--------------------------------------------");
+		System.out.println("***************************************************");
 		
 	}
 

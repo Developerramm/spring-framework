@@ -2,6 +2,7 @@ package com.app.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void deleteEmpById(Integer id) {
 		empRepo.deleteById(id);
+	}
+
+	@Override
+	public Optional<EmployeeDto> getEmployeeById(Integer id) {
+		Optional<EmployeeEntity> entityInOptional = 	empRepo.findById(id);
+		// convert the entity to dto
+		Optional<EmployeeDto> optionalDto = Optional.empty();
+		
+		if(entityInOptional.isPresent()) {
+			EmployeeEntity entity =entityInOptional.get();
+			EmployeeDto dto = new EmployeeDto();
+			BeanUtils.copyProperties(entity, dto);
+			optionalDto = Optional.of(dto);
+		}
+		
+		return optionalDto;
 	}
 
 }

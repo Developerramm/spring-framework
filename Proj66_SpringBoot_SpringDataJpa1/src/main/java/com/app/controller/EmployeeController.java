@@ -1,6 +1,7 @@
 package com.app.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,6 +49,16 @@ public class EmployeeController {
 	public void deleteEmpByGivenId(Integer id) {
 		empService.deleteEmpById(id);
 		System.out.println("employee deleted successfully");
+	}
+	
+	public void checkEmployee(Integer id) {
+		Optional<EmployeeDto> optionalDto = empService.getEmployeeById(id);
+		
+		if(optionalDto.isPresent()) {
+			System.out.println("Employee exist by given id " + id);
+		}else {
+			System.out.println("Employee does not exist by given id " + id);
+		}
 	}
 
 }
