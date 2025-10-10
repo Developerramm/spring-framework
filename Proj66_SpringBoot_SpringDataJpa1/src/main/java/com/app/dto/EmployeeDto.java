@@ -7,6 +7,19 @@ public class EmployeeDto {
 	private String email;
 	private Float salary;
 	
+	public EmployeeDto(Integer eid, String name, String email, Float salary) {
+
+		this.eid = eid;
+		this.name = name;
+		this.email = email;
+		this.salary = salary;
+	}
+	
+//	public EmployeeDto() {
+//
+//	}
+
+
 	public Integer getEid() {
 		return eid;
 	}

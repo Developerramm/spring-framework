@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -22,6 +24,11 @@ public class EmployeeController {
 		}else {
 			System.out.println("Employee registration failed");
 		}
+	}
+	
+	
+	public Integer[] processEmpRegistrationInGroup(List<EmployeeDto> empDtoList) {
+		return empService.registerEmployeeInGroup(empDtoList);
 	}
 
 }
