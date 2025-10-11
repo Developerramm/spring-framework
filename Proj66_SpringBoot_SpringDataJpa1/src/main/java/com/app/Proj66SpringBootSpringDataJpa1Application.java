@@ -37,7 +37,7 @@ public class Proj66SpringBootSpringDataJpa1Application {
 		System.out.println("-------------------------------------------------------");
 		
 		EmployeeDto dto1 = new EmployeeDto(1004, "Sarita", "sarita@gmail.com", 12000.0f);
-		EmployeeDto dto2 = new EmployeeDto(1005,"Ranji","ranji@gmail.com",64000.0f);
+		EmployeeDto dto2 = new EmployeeDto(1003,"pooja","ppooji@gmail.com",64000.0f);
 		
 		List<EmployeeDto> dtoList = new ArrayList<EmployeeDto>();
 		dtoList.add(dto1);
@@ -46,7 +46,7 @@ public class Proj66SpringBootSpringDataJpa1Application {
 		
 		Integer[] empIds = controller.processEmpRegistrationInGroup(dtoList);
 		System.out.println(Arrays.toString(empIds));
-		*/
+		
 		
 		System.out.println("-------------------------------------------------");
 		
@@ -66,6 +66,33 @@ public class Proj66SpringBootSpringDataJpa1Application {
 		controller.checkEmployee(1004);
 		System.out.println("--------------------------------------------");
 		System.out.println("***************************************************");
+		
+//		controller.deleteEmployee(1004);
+		
+		System.out.println("--------------------------------------------------------");
+		System.out.println("*************************************************************");
+		*/
+		
+		System.out.println("----------------------------------------------------");
+		System.out.println("*******************************************************");
+		controller.getAllEmployees();
+		System.out.println("************************************************************");
+		System.out.println("----------------------------------------------------------");
+		
+//		controller.deleteAllGivenEntites(
+//					List.of(
+//							new EmployeeDto(1004),
+//							new EmployeeDto(1005)
+//							)
+//				);
+		System.out.println("_____________________________________________________");
+		System.out.println("*******************************************************");
+		
+		List<EmployeeDto> dtoList = controller.getEmpByIds(
+				List.of(1001,1002,1003)
+				);
+		
+		System.out.println(dtoList);
 		
 	}
 

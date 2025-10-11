@@ -18,7 +18,11 @@ public class EmployeeDto {
 	public EmployeeDto() {
 
 	}
-
+	
+	public EmployeeDto(Integer eid)
+	{
+		this.eid = eid;
+	}
 
 	public Integer getEid() {
 		return eid;
@@ -44,4 +48,11 @@ public class EmployeeDto {
 	public void setSalary(Float salary) {
 		this.salary = salary;
 	}
+
+	@Override
+	public String toString() {
+		return "EmployeeDto [eid=" + eid + ", name=" + name + ", email=" + email + ", salary=" + salary + "]";
+	}
+	
+	
 }

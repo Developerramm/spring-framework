@@ -89,4 +89,69 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return optionalDto;
 	}
 
+	@Override
+	public String deleteEmployeeById(int  id) {
+		
+		Optional<EmployeeEntity> optionalEntity = empRepo.findById(id);
+		
+		String status = "";
+		if(optionalEntity.isPresent()) {
+			empRepo.delete(optionalEntity.get());
+			status = "employee deleted";
+		}else {
+			status = "Employee cannot be deleted ";
+		}
+		
+		
+		return status;
+	}
+
+	@Override
+	public List<EmployeeDto> getAllemployess() {
+			Iterable<EmployeeEntity> itrEntities = empRepo.findAll();
+			
+			Iterable<EmployeeDto> itrDto = new ArrayList<EmployeeDto>();
+			
+			itrEntities.forEach(entity->{
+				EmployeeDto dto = new EmployeeDto();
+				BeanUtils.copyProperties(entity, dto);
+				((List<EmployeeDto>)itrDto).add(dto);
+			});
+			
+		return (List<EmployeeDto>)itrDto;
+	}
+
+	@Override
+	public String removeEmployeesByGivenEntities(List<EmployeeDto> empDtoList) {
+		
+		// convert dto to entity list
+		List<EmployeeEntity> entityList = new ArrayList<EmployeeEntity>();
+		
+		empDtoList.forEach(dto->{
+			EmployeeEntity entity = new EmployeeEntity();
+			BeanUtils.copyProperties(dto, entity);
+			entityList.add(entity);
+		});
+		
+		empRepo.deleteAll(entityList);
+		
+		return "entities deleted";
+	}
+
+	@Override
+	public List<EmployeeDto> getEmployeesByIds(List<Integer> ids) {
+		List<EmployeeEntity> listEntity = (List<EmployeeEntity>)empRepo.findAllById(ids);
+		
+		// convert the entity list to DTO list
+		List<EmployeeDto> dtoList = new ArrayList<EmployeeDto>();
+		
+		listEntity.forEach(entity->{
+			EmployeeDto dto = new EmployeeDto();
+			BeanUtils.copyProperties(entity, dto);
+			dtoList.add(dto);
+		});
+		
+		return dtoList;
+	}
+
 }

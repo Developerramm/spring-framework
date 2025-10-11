@@ -60,5 +60,24 @@ public class EmployeeController {
 			System.out.println("Employee does not exist by given id " + id);
 		}
 	}
+	
+	public void deleteEmployee(int id) {
+		String status =  empService.deleteEmployeeById(id);
+		System.out.println(status);
+	}
+	
+	public void getAllEmployees() {
+		List<EmployeeDto> dtoList = empService.getAllemployess();
+		System.out.println(dtoList);
+	}
+	
+	public void deleteAllGivenEntites(List<EmployeeDto> dtoList) {
+	 String status = empService.removeEmployeesByGivenEntities(dtoList);
+	 System.out.println(status);
+	}
+	
+	public List<EmployeeDto> getEmpByIds(List<Integer> ids){
+		return empService.getEmployeesByIds(ids);
+	}
 
 }

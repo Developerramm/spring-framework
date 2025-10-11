@@ -59,5 +59,12 @@ public class EmployeeEntity implements Serializable{
 	public void setSalary(Float salary) {
 		this.salary = salary;
 	}
+
+	@Override
+	public String toString() {
+		return "EmployeeEntity [eid=" + eid + ", name=" + name + ", email=" + email + ", salary=" + salary + "]";
+	}
+	
+	
 	
 }
