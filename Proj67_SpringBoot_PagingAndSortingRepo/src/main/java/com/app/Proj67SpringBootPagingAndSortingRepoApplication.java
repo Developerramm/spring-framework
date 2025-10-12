@@ -34,11 +34,13 @@ public class Proj67SpringBootPagingAndSortingRepoApplication {
 //		System.out.println("------------------------------------------------");
 //		System.out.println("888888888888888888888888888888888888");
 		
-		controller.deleteEmployeInBatch(List.of(
-				new EmployeeDto(1001),
-				new EmployeeDto(1002),
-				new EmployeeDto(1003)
-				));
+//		controller.deleteEmployeInBatch(List.of(
+//				new EmployeeDto(1001),
+//				new EmployeeDto(1002),
+//				new EmployeeDto(1003)
+//				));
+		
+		System.out.println("*****************************************");
 	}
 
 }
