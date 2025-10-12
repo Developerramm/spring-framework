@@ -33,6 +33,14 @@ public class EmployeeController {
 		empService.getRecordByPagination(size);
 	}
 	
+	public void getEmployeeById(int eid) {
+		System.out.println(empService.fetchEmployeeById(eid));
+	}
+	
+	public void deleteEmployeInBatch(List<EmployeeDto> dtoList) {
+		empService.removeEmployeesInBatch(dtoList);
+		System.out.println("Employees Batch is deleted");
+	}
 	
 
 }

@@ -17,6 +17,8 @@ import com.app.dto.EmployeeDto;
 import com.app.entity.EmployeeEntity;
 import com.app.repo.EmployeeRepo;
 
+import jakarta.transaction.Transactional;
+
 @Service("empService")
 public class EmployeeServiceImpl implements EmployeeService {
 	
@@ -113,6 +115,36 @@ public class EmployeeServiceImpl implements EmployeeService {
 				System.out.println("-------------------------");
 			}
 		}
+		
+	}
+
+	@Override
+	@Transactional
+	public EmployeeDto fetchEmployeeById(int eid) {
+		
+		EmployeeEntity entity =	empRepo.getReferenceById(eid);
+		
+		// convet the entity to dto
+		EmployeeDto dto = new EmployeeDto();
+		
+		BeanUtils.copyProperties(entity, dto);
+		
+		return dto;
+	}
+
+	@Override
+	public void removeEmployeesInBatch(List<EmployeeDto> listDto) {
+		
+		// convert the dto to entity list
+		List<EmployeeEntity> listEntity = new ArrayList<EmployeeEntity>();
+		
+		listDto.forEach(dto->{
+			EmployeeEntity entity = new EmployeeEntity();
+			BeanUtils.copyProperties(dto, entity);
+			listEntity.add(entity);
+		});
+		
+		empRepo.deleteAllInBatch(listEntity);
 		
 	}
 

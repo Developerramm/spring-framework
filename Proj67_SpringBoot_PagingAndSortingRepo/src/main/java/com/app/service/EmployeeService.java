@@ -14,4 +14,8 @@ public interface EmployeeService {
 	
 	public void getRecordByPagination(int pageSize);
 	
+	public EmployeeDto fetchEmployeeById(int eid);
+	
+	public void removeEmployeesInBatch(List<EmployeeDto> listDto);
+	
 }
