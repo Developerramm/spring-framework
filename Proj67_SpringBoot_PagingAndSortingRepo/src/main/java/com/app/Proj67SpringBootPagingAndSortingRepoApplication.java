@@ -23,6 +23,8 @@ public class Proj67SpringBootPagingAndSortingRepoApplication {
 		controller.getAllEmployeesInSortingOrderByMultipleProperties(true, "eid","name");
 		System.out.println("*******************************************************");
 		controller.getEmployeesByPageNumber(5, 3);
+		System.out.println("------------------------------------------------");
+		controller.fetchEmpByPage(3);
 		
 	}
 

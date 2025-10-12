@@ -93,6 +93,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void getRecordByPagination(int pageSize) {
 		
+		long totalNoRecord = empRepo.count();
+		
+		int pageCount = (int) (totalNoRecord) /pageSize;
+		
+		if(totalNoRecord % pageSize != 0) {
+			pageCount++;
+			// recored page by page
+			
+			for(int i = 0; i<pageCount; i++) {
+				Pageable pageable = PageRequest.of(i,pageSize);
+				
+				Page<EmployeeEntity> page = empRepo.findAll(pageable);
+				
+				List<EmployeeEntity> entityList = page.getContent();
+				
+				entityList.forEach(System.out::println);
+				System.out.println(page.getNumber() + 1);
+				System.out.println("-------------------------");
+			}
+		}
 		
 	}
 

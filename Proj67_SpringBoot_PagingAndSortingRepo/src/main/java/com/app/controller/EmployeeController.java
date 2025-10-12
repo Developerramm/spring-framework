@@ -29,6 +29,10 @@ public class EmployeeController {
 		System.out.println(dtoList);
 	}
 	
+	public void fetchEmpByPage(int size) {
+		empService.getRecordByPagination(size);
+	}
+	
 	
 
 }
