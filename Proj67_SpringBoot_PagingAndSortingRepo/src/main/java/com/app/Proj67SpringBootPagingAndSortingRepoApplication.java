@@ -21,7 +21,8 @@ public class Proj67SpringBootPagingAndSortingRepoApplication {
 		controller.getAllEmployeesInSortingOrder("name", true);
 		System.out.println("************************************************");
 		controller.getAllEmployeesInSortingOrderByMultipleProperties(true, "eid","name");
-		
+		System.out.println("*******************************************************");
+		controller.getEmployeesByPageNumber(5, 3);
 		
 	}
 

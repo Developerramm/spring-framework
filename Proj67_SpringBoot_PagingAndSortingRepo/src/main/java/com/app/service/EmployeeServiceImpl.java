@@ -1,11 +1,16 @@
 package com.app.service;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.app.dto.EmployeeDto;
@@ -58,6 +63,31 @@ public class EmployeeServiceImpl implements EmployeeService {
 		});
 		
 		return listDto;
+	}
+
+	@Override
+	public List<EmployeeDto> getPageRecored(int pageNo, int pageSize) {
+		
+		// create the pageable objec 
+		
+		Pageable pageable = PageRequest.of(pageNo, pageSize, Direction.DESC, "eid");
+		
+		Page<EmployeeEntity> page = empRepo.findAll(pageable);
+		
+//		System.out.println("----------------------------");
+//		System.out.println(page.getNumber() + " " + page.getNumberOfElements());
+		
+		List<EmployeeEntity> entityList = page.getContent();
+		
+		List<EmployeeDto> dtoList = new ArrayList<EmployeeDto>();
+		
+		entityList.forEach(entity->{
+			EmployeeDto dto = new EmployeeDto();
+			BeanUtils.copyProperties(entity, dto);
+			dtoList.add(dto);
+		});
+		
+		return dtoList;
 	}
 
 	

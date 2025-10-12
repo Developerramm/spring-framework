@@ -24,6 +24,11 @@ public class EmployeeController {
 		System.out.println(empDtoList);
 	}
 	
+	public void getEmployeesByPageNumber(int pageNo,int pageSize) {
+		List<EmployeeDto> dtoList =  empService.getPageRecored(pageNo, pageSize);
+		System.out.println(dtoList);
+	}
+	
 	
 
 }

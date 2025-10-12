@@ -10,4 +10,6 @@ public interface EmployeeService {
 	
 	public List<EmployeeDto> getAllEmployees(boolean ascendingOrder,String ...properties);
 	
+	public List<EmployeeDto> getPageRecored(int pageNo,int pageSize);
+	
 }
