@@ -90,5 +90,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return dtoList;
 	}
 
+	@Override
+	public void getRecordByPagination(int pageSize) {
+		
+		
+	}
+
 	
 }

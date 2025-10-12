@@ -12,4 +12,6 @@ public interface EmployeeService {
 	
 	public List<EmployeeDto> getPageRecored(int pageNo,int pageSize);
 	
+	public void getRecordByPagination(int pageSize);
+	
 }
