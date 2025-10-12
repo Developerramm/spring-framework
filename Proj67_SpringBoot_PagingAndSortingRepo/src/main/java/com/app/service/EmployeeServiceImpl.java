@@ -39,5 +39,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return listDto;
 	}
 
+	@Override
+	public List<EmployeeDto> getAllEmployees(boolean ascendingOrder, String... properties) {
+		
+		List<EmployeeEntity> entityList = null;
+		entityList = (List<EmployeeEntity>) empRepo.findAll(
+							ascendingOrder ?
+							Sort.by(Sort.Direction.ASC,properties) :
+							Sort.by(Sort.Direction.DESC,properties)
+						);
+		
+		List<EmployeeDto> listDto = new ArrayList<EmployeeDto>();
+		
+		entityList.forEach(entity->{
+			EmployeeDto dto = new EmployeeDto();
+			BeanUtils.copyProperties(entity, dto);
+			listDto.add(dto);
+		});
+		
+		return listDto;
+	}
+
 	
 }

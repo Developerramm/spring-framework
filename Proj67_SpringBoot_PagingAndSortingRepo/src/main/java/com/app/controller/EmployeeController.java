@@ -19,6 +19,11 @@ public class EmployeeController {
 		System.out.println(empDtoList);
 	}
 	
+	public void getAllEmployeesInSortingOrderByMultipleProperties(boolean asc,String ...properties) {
+		List<EmployeeDto> empDtoList = empService.getAllEmployees(asc,properties);
+		System.out.println(empDtoList);
+	}
+	
 	
 
 }

@@ -18,7 +18,10 @@ public class Proj67SpringBootPagingAndSortingRepoApplication {
 		
 		controller = context.getBean("empController",EmployeeController.class);
 		
-		controller.getAllEmployeesInSortingOrder("name", false);
+		controller.getAllEmployeesInSortingOrder("name", true);
+		System.out.println("************************************************");
+		controller.getAllEmployeesInSortingOrderByMultipleProperties(true, "eid","name");
+		
 		
 	}
 
